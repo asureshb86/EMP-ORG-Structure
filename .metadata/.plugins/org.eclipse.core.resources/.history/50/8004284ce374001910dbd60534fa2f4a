@@ -1,0 +1,112 @@
+package com.emp.org.struct.utility;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import com.emp.org.struct.model.Employee;
+
+public class LoadJSONUtility {
+
+	private static Map<Long, Employee> employeeList = new HashMap<Long, Employee>();
+	private static InputStream inputStream = null;
+	private static BufferedReader reader = null;
+	private static JSONParser jsonParser = new JSONParser(); // JSON parser object to parse read file
+	private static Object obj;
+	private static JSONArray employeeArr = null;
+	private static JSONObject empObj = null;
+	
+	public static Map<Long, Employee> readJsonFile() {
+
+		try {
+			
+			inputStream = MessageService.class.getClassLoader().getResourceAsStream("EmployeeData.json");
+			reader = new BufferedReader(new InputStreamReader(inputStream));
+			obj = jsonParser.parse(reader); // Read JSON file
+			employeeArr = (JSONArray) obj;
+			System.out.println(employeeArr);
+
+			for (Object employee : employeeArr) {
+
+				empObj = (JSONObject) employee;
+				employeeList.put((Long) empObj.get("Employee ID"),  new Employee((long) empObj.get("Employee ID"), (String) empObj.get("City Name"),
+						(long) empObj.get("Salary"), (String) empObj.get("First Name"),
+						(String) empObj.get("Second Name"), (long) empObj.get("Manager Emp Id")));
+			}
+			return employeeList;
+
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+			return null;
+
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+			return null;
+
+		} catch (ParseException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+
+	}
+	
+	
+
+
+	/*
+	 * public static JSONObject updateJson(JSONObject obj, String keyString, String
+	 * newValue) throws Exception { JSONObject json = new JSONObject(); // get the
+	 * keys of json object Iterator iterator = obj.keys(); String key = null; while
+	 * (iterator.hasNext()) { key = (String) iterator.next(); // if the key is a
+	 * string, then update the value if ((obj.optJSONArray(key) == null) &&
+	 * (obj.optJSONObject(key) == null)) { if ((key.equals(keyString))) { // put new
+	 * value obj.put(key, newValue); return obj; } }
+	 * 
+	 * // if it's jsonobject if (obj.optJSONObject(key) != null) {
+	 * updateJson(obj.getJSONObject(key), keyString, newValue); }
+	 * 
+	 * // if it's jsonarray if (obj.optJSONArray(key) != null) { JSONArray jArray =
+	 * obj.getJSONArray(key); for (int i = 0; i < jArray.length(); i++) {
+	 * updateJson(jArray.getJSONObject(i), keyString, newValue); } } } return obj; }
+	 * 
+	 */
+	/*
+	 * public static Employee writeJsonFile(Employee emp, Long empID) {
+	 * 
+	 * JSONObject jsonObject = Js.createObjectBuilder()
+	 * 
+	 * .add("name", jsonArray)
+	 * 
+	 * .add("surname", "Demir")
+	 * 
+	 * .build();
+	 * 
+	 * // PrintWriter and JsonWriter is being created
+	 * 
+	 * // in try-with-resources
+	 * 
+	 * try (PrintWriter pw = new PrintWriter("./src/main/resources/jsonObject.json")
+	 * 
+	 * ;JsonWriter jsonWriter = Json.createWriter(pw)) {
+	 * 
+	 * // Json object is being sent into file system
+	 * 
+	 * jsonWriter.writeObject(jsonObject);
+	 * 
+	 * }
+	 * 
+	 * return null;
+	 * 
+	 * }
+	 */
+}
+

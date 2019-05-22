@@ -1,0 +1,5 @@
+package com.emp.org.struct.dao;
+
+public class EmployeeDAO {
+
+}

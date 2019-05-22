@@ -1,0 +1,15 @@
+127.0.0.1 - - [13/May/2019:00:01:22 +0530] "GET / HTTP/1.1" 404 1074
+127.0.0.1 - - [13/May/2019:00:01:46 +0530] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:01:56 +0530] "GET /ORG-Structure/webapi/employees HTTP/1.1" 200 575
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:02:11 +0530] "GET /ORG-Structure/webapi/employees HTTP/1.1" 200 575
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:27:13 +0530] "GET /ORG-Structure/webapi/employees/employeeID/1490 HTTP/1.1" 200 112
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:30:50 +0530] "PUT /ORG-Structure/webapi/employees/employeeID/1490 HTTP/1.1" 405 1090
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:31:00 +0530] "PUT /ORG-Structure/webapi/employees/1490 HTTP/1.1" 415 1131
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:31:00 +0530] "PUT /ORG-Structure/webapi/employees/1490 HTTP/1.1" 415 1131
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:31:22 +0530] "PUT /ORG-Structure/webapi/employees/1490 HTTP/1.1" 200 112
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:36:01 +0530] "PUT /ORG-Structure/webapi/employees/sumOfsubOrdSalaries/1490 HTTP/1.1" 405 1090
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:36:08 +0530] "GET /ORG-Structure/webapi/employees/sumOfsubOrdSalaries/1490 HTTP/1.1" 200 412
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:41:43 +0530] "GET /ORG-Structure/webapi/employees/empID/3450 HTTP/1.1" 200 59
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:41:57 +0530] "GET /ORG-Structure/webapi/employees/empID/2657 HTTP/1.1" 200 180
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:42:48 +0530] "GET /ORG-Structure/webapi/employees/empID/1497 HTTP/1.1" 500 4382
+0:0:0:0:0:0:0:1 - - [13/May/2019:00:43:00 +0530] "GET /ORG-Structure/webapi/employees/empID/1490 HTTP/1.1" 200 280

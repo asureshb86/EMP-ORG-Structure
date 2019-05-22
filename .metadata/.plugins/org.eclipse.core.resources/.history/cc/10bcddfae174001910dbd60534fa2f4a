@@ -1,0 +1,5 @@
+package com.emp.org.struct.model;
+
+public class Employee {
+
+}
